@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky kameti Admin Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a1a2f 0%, #1a2f4f 100%);
+      min-height: 100vh;
+      color: #ffffff;
+    }
+    
+    .header {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .logo h1 {
+      color: #d4af37;
+      font-size: 1.8rem;
+    }
+    
+    .header-actions {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    .btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .btn-danger {
+      background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+      color: #ffffff;
+    }
+    
+    .btn-success {
+      background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+      color: #ffffff;
+    }
+    
+    .btn-info {
+      background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+      color: #ffffff;
+    }
+    
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .main-content {
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .nav-tabs {
+      display: flex;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      margin-bottom: 30px;
+      overflow: hidden;
+    }
+    
+    .nav-tab {
+      flex: 1;
+      padding: 15px 20px;
+      text-align: center;
+      cursor: pointer;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.7);
+      border: none;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-tab.active {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      font-weight: 600;
+    }
+    
+    .nav-tab:hover {
+      background: rgba(212, 175, 55, 0.2);
+      color: #ffffff;
+    }
+    
+    .nav-tab.active:hover {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .stat-card h3 {
+      color: #d4af37;
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    
+    .stat-card p {
+      color: #ffffff;
+      opacity: 0.8;
+    }
+    
+    .search-filter {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .search-input {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 14px;
+    }
+    
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .data-table {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .table-header {
+      background: rgba(212, 175, 55, 0.2);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .table-header h2 {
+      color: #d4af37;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 12px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    th {
+      background: rgba(255, 255, 255, 0.05);
+      color: #d4af37;
+      font-weight: 600;
+    }
+    
+    td {
+      color: #ffffff;
+    }
+    
+    .ref-number {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    
+    .status-paid {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .status-pending {
+      background: rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .status-replied {
+      background: rgba(59, 130, 246, 0.2);
+      color: #3b82f6;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .status-resolved {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .no-data {
+      text-align: center;
+      padding: 40px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .action-buttons {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    
+    .btn-small {
+      padding: 4px 8px;
+      font-size: 12px;
+    }
+    
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #d4af37;
+    }
+    
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 14px;
+    }
+    
+    .form-group textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+    
+    .modal-content {
+      background: #1a2a4f;
+      color: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 50px auto;
+      position: relative;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #d4af37;
+    }
+    
+    @media (max-width: 768px) {
+      .header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .main-content {
+        padding: 1rem;
+      }
+      
+      .nav-tabs {
+        flex-direction: column;
+      }
+      
+      .search-filter {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      
+      .table-responsive {
+        overflow-x: auto;
+      }
+      
+      .action-buttons {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <h1>🎟️ Lucky kameti Admin</h1>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="refreshCurrentTab()">🔄 Refresh</button>
+      <button class="btn btn-primary" onclick="exportData()">📥 Export CSV</button>
+      <button class="btn btn-secondary" onclick="logout()">🚪 Logout</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="switchTab('entries')">📋 Entries</button>
+      <button class="nav-tab" onclick="switchTab('winners')">🏆 Winners</button>
+      <button class="nav-tab" onclick="switchTab('inquiries')">💬 Inquiries</button>
+    </div>
+
+    <!-- Entries Tab -->
+    <div id="entriesTab" class="tab-content active">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 id="totalEntries">-</h3>
+          <p>Total Entries</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalRevenue">-</h3>
+          <p>Total Revenue</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="todayEntries">-</h3>
+          <p>Today's Entries</p>
+        </div>
+      </div>
+
+      <div class="search-filter">
+        <input type="text" class="search-input" id="entriesSearchInput" placeholder="Search entries..." onkeyup="filterEntries()">
+        <button class="btn btn-secondary" onclick="clearEntriesFilter()">Clear</button>
+      </div>
+
+      <div class="data-table">
+        <div class="table-header">
+          <h2>Lottery Entries</h2>
+          <span id="entryCount">Loading...</span>
+        </div>
+        
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Reference</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Entry Count</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              <tr><td colspan="8" class="loading">Loading entries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Winners Tab -->
+    <div id="winnersTab" class="tab-content">
+      <div class="search-filter">
+        <input type="text" class="search-input" id="winnersSearchInput" placeholder="Search winners..." onkeyup="filterWinners()">
+        <button class="btn btn-secondary" onclick="clearWinnersFilter()">Clear</button>
+      </div>
+
+      <div class="data-table">
+        <div class="table-header">
+          <h2>Winners</h2>
+          <span id="winnerCount">Loading...</span>
+        </div>
+        
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Reference</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Prize</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="winnersTableBody">
+              <tr><td colspan="8" class="loading">Loading winners...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inquiries Tab -->
+    <div id="inquiriesTab" class="tab-content">
+      <div class="search-filter">
+        <input type="text" class="search-input" id="inquiriesSearchInput" placeholder="Search inquiries..." onkeyup="filterInquiries()">
+        <button class="btn btn-secondary" onclick="clearInquiriesFilter()">Clear</button>
+      </div>
+
+      <div class="data-table">
+        <div class="table-header">
+          <h2>Contact Inquiries</h2>
+          <span id="inquiryCount">Loading...</span>
+        </div>
+        
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inquiriesTableBody">
+              <tr><td colspan="7" class="loading">Loading inquiries...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Reply Modal -->
+  <div id="replyModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeReplyModal()">&times;</span>
+      <h3>Reply to Inquiry</h3>
+      <form id="replyForm">
+        <div class="form-group">
+          <label>To:</label>
+          <input type="text" id="replyToName" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="email" id="replyToEmail" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label>Original Subject:</label>
+          <input type="text" id="replySubject" readonly>
+        </div>
+        
+        <div class="form-group">
+          <label>Original Message:</label>
+          <textarea id="originalMessage" readonly rows="3"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Your Reply:</label>
+          <textarea id="adminReply" placeholder="Type your reply here..." rows="5" required></textarea>
+        </div>
+        
+        <div style="text-align: right; margin-top: 20px;">
+          <button type="button" onclick="closeReplyModal()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-primary" style="margin-left: 10px;">Send Reply</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let allEntries = [];
+    let allWinners = [];
+    let allInquiries = [];
+    let filteredEntries = [];
+    let filteredWinners = [];
+    let filteredInquiries = [];
+    let currentTab = 'entries';
+    let csrfToken = null;
+
+    // Check authentication
+    function checkAuth() {
+      const token = sessionStorage.getItem('adminToken');
+      if (!token) {
+        window.location.href = '/admin/login.html';
+        return false;
+      }
+      return token;
+    }
+
+    // Fetch CSRF token
+    async function fetchCSRFToken() {
+      const token = checkAuth();
+      if (!token) return null;
+
+      try {
+        const response = await fetch('/admin/csrf-token', {
+          headers: { 'x-admin-token': token }
+        });
+        if (response.ok) {
+          const result = await response.json();
+          csrfToken = result.csrfToken;
+          return csrfToken;
+        }
+      } catch (error) {
+        console.error('Error fetching CSRF token:', error);
+      }
+      return null;
+    }
+
+    // Make secure admin request with CSRF token
+    async function makeSecureRequest(url, options = {}) {
+      const token = checkAuth();
+      if (!token) return null;
+
+      // Ensure we have a CSRF token for POST/DELETE requests
+      if (!csrfToken && (options.method === 'POST' || options.method === 'DELETE')) {
+        await fetchCSRFToken();
+      }
+
+      const headers = {
+        'x-admin-token': token,
+        ...options.headers
+      };
+
+      // Add CSRF token for POST/DELETE requests
+      if (csrfToken && (options.method === 'POST' || options.method === 'DELETE')) {
+        headers['x-csrf-token'] = csrfToken;
+      }
+
+      return fetch(url, {
+        ...options,
+        headers
+      });
+    }
+
+    // Switch tabs
+    function switchTab(tabName) {
+      currentTab = tabName;
+      
+      // Update tab buttons
+      document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Update tab content
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.getElementById(tabName + 'Tab').classList.add('active');
+      
+      // Load data for the current tab
+      loadCurrentTabData();
+    }
+
+    // Load data for current tab
+    function loadCurrentTabData() {
+      switch(currentTab) {
+        case 'entries':
+          loadEntries();
+          break;
+        case 'winners':
+          loadWinners();
+          break;
+        case 'inquiries':
+          loadInquiries();
+          break;
+      }
+    }
+
+    // Refresh current tab
+    function refreshCurrentTab() {
+      loadCurrentTabData();
+    }
+
+    // Load entries
+    async function loadEntries() {
+      const token = checkAuth();
+      if (!token) return;
+
+      try {
+        const response = await fetch('/admin/entries', {
+          headers: { 'x-admin-token': token }
+        });
+
+        if (response.status === 401 || response.status === 403) {
+          logout();
+          return;
+        }
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch entries: ${response.status}`);
+        }
+
+        allEntries = await response.json();
+        filteredEntries = [...allEntries];
+        updateEntriesStats();
+        renderEntries();
+      } catch (error) {
+        console.error('Error loading entries:', error);
+        document.getElementById('entriesTableBody').innerHTML = 
+          '<tr><td colspan="7" class="loading">Failed to load entries.</td></tr>';
+      }
+    }
+
+    // Load winners
+    async function loadWinners() {
+      const token = checkAuth();
+      if (!token) return;
+
+      try {
+        const response = await fetch('/admin/winners', {
+          headers: { 'x-admin-token': token }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch winners: ${response.status}`);
+        }
+
+        allWinners = await response.json();
+        filteredWinners = [...allWinners];
+        renderWinners();
+      } catch (error) {
+        console.error('Error loading winners:', error);
+        document.getElementById('winnersTableBody').innerHTML = 
+          '<tr><td colspan="8" class="loading">Failed to load winners.</td></tr>';
+      }
+    }
+
+    // Load inquiries
+    async function loadInquiries() {
+      const token = checkAuth();
+      if (!token) return;
+
+      try {
+        const response = await fetch('/admin/inquiries', {
+          headers: { 'x-admin-token': token }
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to fetch inquiries: ${response.status}`);
+        }
+
+        const result = await response.json();
+        allInquiries = result.inquiries || [];
+        filteredInquiries = [...allInquiries];
+        renderInquiries();
+      } catch (error) {
+        console.error('Error loading inquiries:', error);
+        document.getElementById('inquiriesTableBody').innerHTML = 
+          '<tr><td colspan="7" class="loading">Failed to load inquiries.</td></tr>';
+      }
+    }
+
+
+    // Update entries statistics
+    function updateEntriesStats() {
+      const total = allEntries.length;
+      const revenue = total * 50;
+      
+      const today = new Date().toDateString();
+      const todayCount = allEntries.filter(entry => 
+        new Date(entry.timestamp).toDateString() === today
+      ).length;
+
+      document.getElementById('totalEntries').textContent = total;
+      document.getElementById('totalRevenue').textContent = `$${revenue}`;
+      document.getElementById('todayEntries').textContent = todayCount;
+    }
+
+    // Render entries table
+    function renderEntries() {
+      const tbody = document.getElementById('entriesTableBody');
+      const countElement = document.getElementById('entryCount');
+
+      if (filteredEntries.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="no-data">No entries found</td></tr>';
+        countElement.textContent = '0 entries';
+        return;
+      }
+
+      countElement.textContent = `${filteredEntries.length} entries`;
+      tbody.innerHTML = '';
+      
+      filteredEntries.forEach(entry => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${entry.id}</td>
+          <td><span class="ref-number">${entry.ref}</span></td>
+          <td>${entry.name}</td>
+          <td>${entry.email}</td>
+          <td><span style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">${entry.entryCount || 1} ${(entry.entryCount || 1) === 1 ? 'entry' : 'entries'}</span></td>
+          <td><span class="status-paid">✓ ${entry.status}</span></td>
+          <td>${new Date(entry.timestamp).toLocaleString()}</td>
+          <td class="action-buttons">
+            <button class="btn btn-success btn-small" onclick="selectWinner(${entry.id})">👑 Select Winner</button>
+            <button class="btn btn-danger btn-small" onclick="deleteEntry(${entry.id})">🗑️ Delete</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Render winners table
+    function renderWinners() {
+      const tbody = document.getElementById('winnersTableBody');
+      const countElement = document.getElementById('winnerCount');
+
+      if (filteredWinners.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" class="no-data">No winners found</td></tr>';
+        countElement.textContent = '0 winners';
+        return;
+      }
+
+      countElement.textContent = `${filteredWinners.length} winners`;
+      tbody.innerHTML = '';
+      
+      filteredWinners.forEach(winner => {
+        const row = document.createElement('tr');
+        const statusClass = winner.paymentStatus === 'paid' ? 'status-paid' : 'status-pending';
+        const statusText = winner.paymentStatus === 'paid' ? '✓ Paid' : '⏳ Pending';
+        
+        row.innerHTML = `
+          <td>${winner.id}</td>
+          <td><span class="ref-number">${winner.ref}</span></td>
+          <td>${winner.name}</td>
+          <td>${winner.email}</td>
+          <td>$${winner.winningAmount}</td>
+          <td><span class="${statusClass}">${statusText}</span></td>
+          <td>${new Date(winner.announceDate).toLocaleString()}</td>
+          <td class="action-buttons">
+            ${winner.paymentStatus === 'pending' ? 
+              `<button class="btn btn-success btn-small" onclick="markWinnerPaid(${winner.id})">💰 Mark Paid</button>` : 
+              ''}
+            <button class="btn btn-danger btn-small" onclick="deleteWinner(${winner.id})">🗑️ Delete</button>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Render inquiries table
+    function renderInquiries() {
+      const tbody = document.getElementById('inquiriesTableBody');
+      const countElement = document.getElementById('inquiryCount');
+
+      if (filteredInquiries.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" class="no-data">No inquiries found</td></tr>';
+        countElement.textContent = '0 inquiries';
+        return;
+      }
+
+      countElement.textContent = `${filteredInquiries.length} inquiries`;
+      tbody.innerHTML = '';
+      
+      filteredInquiries.forEach(inquiry => {
+        const row = document.createElement('tr');
+        const statusClass = inquiry.status === 'resolved' ? 'status-resolved' : 
+                           inquiry.status === 'replied' ? 'status-replied' : 'status-pending';
+        const statusText = inquiry.status === 'resolved' ? '✓ Resolved' : 
+                          inquiry.status === 'replied' ? '💬 Replied' : '⏳ Pending';
+        
+        row.innerHTML = `
+          <td>${inquiry.id}</td>
+          <td>${inquiry.name}</td>
+          <td>${inquiry.email}</td>
+          <td>${inquiry.subject}</td>
+          <td><span class="${statusClass}">${statusText}</span></td>
+          <td>${new Date(inquiry.createdAt).toLocaleString()}</td>
+          <td class="action-buttons">
+            <button class="btn btn-info btn-small" onclick="viewInquiry(${inquiry.id})">👁️ View</button>
+            ${inquiry.status === 'pending' ? 
+              `<button class="btn btn-primary btn-small" onclick="replyToInquiry(${inquiry.id})">💬 Reply</button>` : 
+              ''}
+            ${inquiry.status === 'replied' ? 
+              `<button class="btn btn-success btn-small" onclick="markInquiryResolved(${inquiry.id})">✓ Resolve</button>` : 
+              ''}
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    // Filter functions
+    function filterEntries() {
+      const searchTerm = document.getElementById('entriesSearchInput').value.toLowerCase();
+      filteredEntries = allEntries.filter(entry =>
+        entry.name.toLowerCase().includes(searchTerm) ||
+        entry.email.toLowerCase().includes(searchTerm) ||
+        entry.ref.toLowerCase().includes(searchTerm)
+      );
+      renderEntries();
+    }
+
+    function filterWinners() {
+      const searchTerm = document.getElementById('winnersSearchInput').value.toLowerCase();
+      filteredWinners = allWinners.filter(winner =>
+        winner.name.toLowerCase().includes(searchTerm) ||
+        winner.email.toLowerCase().includes(searchTerm) ||
+        winner.ref.toLowerCase().includes(searchTerm)
+      );
+      renderWinners();
+    }
+
+    function filterInquiries() {
+      const searchTerm = document.getElementById('inquiriesSearchInput').value.toLowerCase();
+      filteredInquiries = allInquiries.filter(inquiry =>
+        inquiry.name.toLowerCase().includes(searchTerm) ||
+        inquiry.email.toLowerCase().includes(searchTerm) ||
+        inquiry.subject.toLowerCase().includes(searchTerm)
+      );
+      renderInquiries();
+    }
+
+    // Clear filter functions
+    function clearEntriesFilter() {
+      document.getElementById('entriesSearchInput').value = '';
+      filteredEntries = [...allEntries];
+      renderEntries();
+    }
+
+    function clearWinnersFilter() {
+      document.getElementById('winnersSearchInput').value = '';
+      filteredWinners = [...allWinners];
+      renderWinners();
+    }
+
+    function clearInquiriesFilter() {
+      document.getElementById('inquiriesSearchInput').value = '';
+      filteredInquiries = [...allInquiries];
+      renderInquiries();
+    }
+
+    // Action functions
+    async function selectWinner(entryId) {
+      const token = checkAuth();
+      if (!token) return;
+      
+      if (!confirm('Are you sure you want to select this entry as the winner?')) {
+        return;
+      }
+      
+      try {
+        const response = await makeSecureRequest('/admin/select-winner', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ entryId })
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          alert(`✅ Winner selected successfully! ${result.winner.name} is now the current winner.`);
+          loadCurrentTabData();
+        } else {
+          alert(`❌ Error selecting winner: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        console.error('Error selecting winner:', error);
+        alert('❌ Error selecting winner. Please try again.');
+      }
+    }
+
+    async function deleteEntry(entryId) {
+      const token = checkAuth();
+      if (!token) return;
+      
+      if (!confirm('Are you sure you want to delete this entry? This action cannot be undone.')) {
+        return;
+      }
+      
+      try {
+        const response = await makeSecureRequest(`/admin/entry/${entryId}`, {
+          method: 'DELETE'
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          alert('✅ Entry deleted successfully!');
+          loadEntries();
+        } else {
+          alert(`❌ Error deleting entry: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        console.error('Error deleting entry:', error);
+        alert('❌ Error deleting entry. Please try again.');
+      }
+    }
+
+    async function markWinnerPaid(winnerId) {
+      const token = checkAuth();
+      if (!token) return;
+      
+      if (!confirm('Are you sure you want to mark this winner as paid?')) {
+        return;
+      }
+      
+      try {
+        const response = await makeSecureRequest('/admin/winner-paid', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ winnerId })
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          alert('✅ Winner marked as paid successfully!');
+          loadWinners();
+        } else {
+          alert(`❌ Error marking winner as paid: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        console.error('Error marking winner as paid:', error);
+        alert('❌ Error marking winner as paid. Please try again.');
+      }
+    }
+
+    async function deleteWinner(winnerId) {
+      const token = checkAuth();
+      if (!token) return;
+      
+      if (!confirm('Are you sure you want to delete this winner? This action cannot be undone.')) {
+        return;
+      }
+      
+      try {
+        const response = await makeSecureRequest(`/admin/winner/${winnerId}`, {
+          method: 'DELETE'
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          alert('✅ Winner deleted successfully!');
+          loadWinners();
+        } else {
+          alert(`❌ Error deleting winner: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        console.error('Error deleting winner:', error);
+        alert('❌ Error deleting winner. Please try again.');
+      }
+    }
+
+    function viewInquiry(inquiryId) {
+      const inquiry = allInquiries.find(i => i.id === inquiryId);
+      if (inquiry) {
+        alert(`From: ${inquiry.name} (${inquiry.email})\nSubject: ${inquiry.subject}\nMessage: ${inquiry.message}\n\n${inquiry.adminReply ? 'Admin Reply: ' + inquiry.adminReply : 'No reply yet'}`);
+      }
+    }
+
+    function replyToInquiry(inquiryId) {
+      const inquiry = allInquiries.find(i => i.id === inquiryId);
+      if (inquiry) {
+        document.getElementById('replyToName').value = inquiry.name;
+        document.getElementById('replyToEmail').value = inquiry.email;
+        document.getElementById('replySubject').value = inquiry.subject;
+        document.getElementById('originalMessage').value = inquiry.message;
+        document.getElementById('adminReply').value = '';
+        document.getElementById('replyForm').dataset.inquiryId = inquiryId;
+        document.getElementById('replyModal').style.display = 'block';
+      }
+    }
+
+    function closeReplyModal() {
+      document.getElementById('replyModal').style.display = 'none';
+      document.getElementById('replyForm').reset();
+    }
+
+    async function markInquiryResolved(inquiryId) {
+      const token = checkAuth();
+      if (!token) return;
+      
+      try {
+        const response = await makeSecureRequest('/admin/inquiry-resolve', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ inquiryId })
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+          alert('✅ Inquiry marked as resolved!');
+          loadInquiries();
+        } else {
+          alert(`❌ Error resolving inquiry: ${result.error || 'Unknown error'}`);
+        }
+      } catch (error) {
+        console.error('Error resolving inquiry:', error);
+        alert('❌ Error resolving inquiry. Please try again.');
+      }
+    }
+
+    // Export to CSV
+    function exportData() {
+      let csvContent = '';
+      
+      switch(currentTab) {
+        case 'entries':
+          if (allEntries.length === 0) {
+            alert('No entries to export');
+            return;
+          }
+          csvContent = [
+            ['ID', 'Reference', 'Name', 'Email', 'Status', 'Date', 'PayPal Order ID'],
+            ...allEntries.map(entry => [
+              entry.id, entry.ref, entry.name, entry.email, entry.status,
+              new Date(entry.timestamp).toLocaleString(), entry.paypalOrderId || ''
+            ])
+          ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+          break;
+          
+        case 'winners':
+          if (allWinners.length === 0) {
+            alert('No winners to export');
+            return;
+          }
+          csvContent = [
+            ['ID', 'Reference', 'Name', 'Email', 'Prize', 'Status', 'Date'],
+            ...allWinners.map(winner => [
+              winner.id, winner.ref, winner.name, winner.email, winner.winningAmount,
+              winner.paymentStatus, new Date(winner.announceDate).toLocaleString()
+            ])
+          ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+          break;
+          
+        case 'inquiries':
+          if (allInquiries.length === 0) {
+            alert('No inquiries to export');
+            return;
+          }
+          csvContent = [
+            ['ID', 'Name', 'Email', 'Subject', 'Message', 'Status', 'Date', 'Admin Reply'],
+            ...allInquiries.map(inquiry => [
+              inquiry.id, inquiry.name, inquiry.email, inquiry.subject, inquiry.message,
+              inquiry.status, new Date(inquiry.createdAt).toLocaleString(), inquiry.adminReply || ''
+            ])
+          ].map(row => row.map(cell => `"${cell}"`).join(',')).join('\n');
+          break;
+          
+        default:
+          alert('No data to export');
+          return;
+      }
+
+      const blob = new Blob([csvContent], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `lucky-kameti-${currentTab}-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
+
+    // Logout
+    function logout() {
+      sessionStorage.removeItem('adminToken');
+      window.location.href = '/admin/login.html';
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', async function() {
+      checkAuth();
+      await fetchCSRFToken(); // Fetch CSRF token on load
+      loadCurrentTabData();
+      
+      // Handle reply form submission
+      document.getElementById('replyForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const inquiryId = this.dataset.inquiryId;
+        const adminReply = document.getElementById('adminReply').value;
+        const token = checkAuth();
+        
+        if (!token) return;
+        
+        try {
+          const response = await makeSecureRequest('/admin/inquiry-reply', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ inquiryId: parseInt(inquiryId), adminReply })
+          });
+          
+          const result = await response.json();
+          
+          if (response.ok && result.success) {
+            alert('✅ Reply sent successfully!');
+            closeReplyModal();
+            loadInquiries();
+          } else {
+            alert(`❌ Error sending reply: ${result.error || 'Unknown error'}`);
+          }
+        } catch (error) {
+          console.error('Error sending reply:', error);
+          alert('❌ Error sending reply. Please try again.');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

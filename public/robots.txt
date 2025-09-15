@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev/sitemap.xml
+
+# Allow crawling of main pages
+Allow: /index.html
+Allow: /generated-icon.png
+
+# Disallow admin and sensitive areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /tmp/
+
+# Crawl rate
+Crawl-delay: 1

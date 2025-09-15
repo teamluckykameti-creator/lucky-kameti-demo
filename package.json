@@ -1,0 +1,30 @@
+{
+  "name": "lucky-kameti-demo",
+  "version": "1.0.0",
+  "description": "Lucky kameti demo (Express + PostgreSQL) - upload to Replit and run (npm install then npm start)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "echo 'Build complete - ready for Vercel deployment'",
+    "dev": "node index.js",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
+    "@octokit/rest": "^22.0.0",
+    "@sendgrid/mail": "^8.1.5",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "csrf": "^3.1.0",
+    "drizzle-kit": "^0.31.4",
+    "drizzle-orm": "^0.44.5",
+    "express": "^4.18.2",
+    "express-session": "^1.18.2",
+    "node-fetch": "^3.3.0",
+    "nodemailer": "^7.0.6",
+    "pg": "^8.16.3"
+  },
+  "type": "module"
+}

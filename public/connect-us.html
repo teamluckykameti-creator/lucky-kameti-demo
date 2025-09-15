@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connect With Us - Lucky Kameti</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a1a2f;
+      color: white;
+      padding: 20px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(26, 42, 79, 0.8);
+      padding: 40px;
+      border-radius: 15px;
+      border: 2px solid #d4af37;
+    }
+    h1 {
+      color: #d4af37;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+    h2 {
+      color: #d4af37;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      font-size: 22px;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 5px;
+    }
+    .back-button {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #d4af37;
+      font-weight: bold;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+      background: rgba(26, 42, 79, 0.8);
+      color: white;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    input[type="email"]:focus {
+      outline: none;
+      border-color: #fff;
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+    .check-button, .submit-button {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-right: 10px;
+    }
+    .check-button:hover, .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+    .submit-button {
+      background: linear-gradient(135deg, #28a745 0%, #20963a 100%);
+      color: white;
+      display: none;
+    }
+    .result-container {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    .success-result {
+      background: rgba(40, 167, 69, 0.2);
+      border: 2px solid #28a745;
+    }
+    .error-result {
+      background: rgba(220, 53, 69, 0.2);
+      border: 2px solid #dc3545;
+    }
+    .warning-result {
+      background: rgba(255, 193, 7, 0.2);
+      border: 2px solid #ffc107;
+      color: #ffc107;
+    }
+    .withdrawal-details {
+      background: rgba(26, 42, 79, 0.6);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border-left: 4px solid #d4af37;
+    }
+    .loader {
+      display: none;
+      text-align: center;
+      color: #d4af37;
+      margin: 20px 0;
+    }
+    .info-section {
+      background: rgba(26, 42, 79, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      border-left: 4px solid #d4af37;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="window.location.href='/'">← Back to Lottery</button>
+    
+    <h1>📞 Connect With Us - Withdrawal Request</h1>
+    
+    <div class="info-section">
+      <h2>💰 Withdrawal Program</h2>
+      <p><strong>Check if you're eligible for withdrawal:</strong></p>
+      <ul>
+        <li>Must have completed <strong>10 or more entries</strong> (initial + renewals)</li>
+        <li>Service charge: <strong>7% of total payments</strong></li>
+        <li>You receive <strong>93% of your total payments</strong></li>
+        <li>Processing time: <strong>5-10 business days</strong> after admin approval</li>
+      </ul>
+    </div>
+
+    <div class="form-group">
+      <label for="memberEmail">Enter Your Registered Email Address:</label>
+      <input type="email" id="memberEmail" placeholder="Enter your lottery registration email..." required>
+    </div>
+    
+    <button class="check-button" onclick="checkWithdrawalEligibility()">Check Eligibility</button>
+    <button class="submit-button" id="submitButton" onclick="submitWithdrawalRequest()">Submit Withdrawal Request</button>
+    
+    <div class="loader" id="loader">
+      <p>⏳ Checking your eligibility...</p>
+    </div>
+    
+    <div class="result-container" id="resultContainer">
+      <div id="resultContent"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 2px solid #d4af37;">
+      <p style="color: #d4af37; font-weight: bold;">
+        💰 Safe & Secure Withdrawal Process 💰
+      </p>
+    </div>
+  </div>
+
+  <script>
+    let eligibilityChecked = false;
+    let memberData = null;
+
+    async function checkWithdrawalEligibility() {
+      const email = document.getElementById('memberEmail').value.trim();
+      const loader = document.getElementById('loader');
+      const resultContainer = document.getElementById('resultContainer');
+      const resultContent = document.getElementById('resultContent');
+      const submitButton = document.getElementById('submitButton');
+
+      if (!email) {
+        alert('Please enter your email address');
+        return;
+      }
+
+      loader.style.display = 'block';
+      resultContainer.style.display = 'none';
+      submitButton.style.display = 'none';
+
+      try {
+        const response = await fetch('/check-withdrawal-eligibility', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email })
+        });
+
+        const data = await response.json();
+        loader.style.display = 'none';
+        resultContainer.style.display = 'block';
+
+        if (!data.success) {
+          resultContainer.className = 'result-container error-result';
+          resultContent.innerHTML = `
+            <h3>❌ ${data.hasExistingRequest ? 'Existing Request Found' : 'Member Not Found'}</h3>
+            <p>${data.message}</p>
+          `;
+          return;
+        }
+
+        memberData = data.member;
+        eligibilityChecked = true;
+
+        if (data.eligible) {
+          resultContainer.className = 'result-container success-result';
+          resultContent.innerHTML = `
+            <h3>🎉 Withdrawal Eligible!</h3>
+            <p><strong>Welcome ${data.member.name}!</strong></p>
+            <p>${data.message}</p>
+            
+            <div class="withdrawal-details">
+              <h4>💰 Withdrawal Details:</h4>
+              <p><strong>Total Entries:</strong> ${data.member.entryCount}</p>
+              <p><strong>Total Paid:</strong> $${data.member.totalPaid}</p>
+              <p><strong>Service Charge (7%):</strong> $${data.member.serviceCharge}</p>
+              <p><strong>Refund Amount (93%):</strong> $${data.member.refundAmount}</p>
+              <p><strong>Your Reference:</strong> ${data.member.ref}</p>
+            </div>
+            
+            <p><strong>Click "Submit Withdrawal Request" to proceed.</strong></p>
+          `;
+          submitButton.style.display = 'inline-block';
+        } else {
+          resultContainer.className = 'result-container warning-result';
+          resultContent.innerHTML = `
+            <h3>⚠️ Not Eligible Yet</h3>
+            <p><strong>Hello ${data.member.name}!</strong></p>
+            <p>${data.message}</p>
+            
+            <div class="withdrawal-details">
+              <p><strong>Current Entries:</strong> ${data.member.entryCount}</p>
+              <p><strong>Entries Needed:</strong> ${data.member.entriesNeeded} more</p>
+              <p><strong>Continue participating in the lottery to reach 10 entries!</strong></p>
+            </div>
+          `;
+        }
+
+      } catch (error) {
+        loader.style.display = 'none';
+        resultContainer.style.display = 'block';
+        resultContainer.className = 'result-container error-result';
+        resultContent.innerHTML = `
+          <h3>❌ Error</h3>
+          <p>Unable to check eligibility. Please try again later.</p>
+          <p>Error: ${error.message}</p>
+        `;
+      }
+    }
+
+    async function submitWithdrawalRequest() {
+      if (!eligibilityChecked || !memberData) {
+        alert('Please check eligibility first');
+        return;
+      }
+
+      const email = document.getElementById('memberEmail').value.trim();
+      const loader = document.getElementById('loader');
+      const resultContainer = document.getElementById('resultContainer');
+      const resultContent = document.getElementById('resultContent');
+      const submitButton = document.getElementById('submitButton');
+
+      loader.style.display = 'block';
+      submitButton.disabled = true;
+
+      try {
+        const response = await fetch('/submit-withdrawal-request', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: email })
+        });
+
+        const data = await response.json();
+        loader.style.display = 'none';
+
+        if (data.success) {
+          resultContainer.className = 'result-container success-result';
+          resultContent.innerHTML = `
+            <h3>✅ Withdrawal Request Submitted!</h3>
+            <p>${data.message}</p>
+            
+            <div class="withdrawal-details">
+              <h4>📋 Request Details:</h4>
+              <p><strong>Request ID:</strong> #${data.request.id}</p>
+              <p><strong>Refund Amount:</strong> $${data.request.refundAmount}</p>
+              <p><strong>Status:</strong> ${data.request.status.toUpperCase()}</p>
+              <p><strong>Expected Processing:</strong> 5-10 business days</p>
+            </div>
+            
+            <p><strong>You will receive an email notification when your request is reviewed.</strong></p>
+          `;
+          submitButton.style.display = 'none';
+        } else {
+          resultContainer.className = 'result-container error-result';
+          resultContent.innerHTML = `
+            <h3>❌ Request Failed</h3>
+            <p>${data.error}</p>
+          `;
+          submitButton.disabled = false;
+        }
+
+      } catch (error) {
+        loader.style.display = 'none';
+        resultContainer.className = 'result-container error-result';
+        resultContent.innerHTML = `
+          <h3>❌ Error</h3>
+          <p>Unable to submit withdrawal request. Please try again later.</p>
+          <p>Error: ${error.message}</p>
+        `;
+        submitButton.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

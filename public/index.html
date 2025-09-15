@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Meta Tags -->
+  <title>Lucky Kameti - $1000 Monthly Prize | $50 Entry Fee</title>
+  <meta name="description" content="Join Lucky Kameti kameti for a chance to win $1000 USD monthly! Entry fee $50. Secure PayPal payments, monthly drawings on the 1st. Join thousands of participants worldwide." />
+  <meta name="keywords" content="lucky kameti, kameti, contest, monthly prize, $1000 prize, online kameti, PayPal kameti, kameti system, monthly drawing, win money online" />
+  <meta name="author" content="Lucky Kameti" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:title" content="Lucky Kameti - Win $1000 Monthly Prize" />
+  <meta property="og:description" content="Join our monthly kameti for a chance to win $1000 USD! Secure entries with $50 fee via PayPal. Winner announced monthly on the 1st." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev" />
+  <meta property="og:image" content="https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev/generated-icon.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:site_name" content="Lucky Kameti" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lucky Kameti - Win $1000 Monthly" />
+  <meta name="twitter:description" content="Monthly kameti with $1000 prize. $50 entry fee via PayPal. Join thousands of participants worldwide!" />
+  <meta name="twitter:image" content="https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev/generated-icon.png" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev" />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/generated-icon.png" />
+  <link rel="apple-touch-icon" href="/generated-icon.png" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0a1a2f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+    .footer {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(10, 26, 47, 0.8) 100%);
+      border-top: 2px solid #d4af37;
+      padding: 20px;
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-button {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    .footer-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+    .winner-display {
+      background: #2a4f2a;
+      border: 2px solid #4CAF50;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      display: none;
+    }
+    .kameti-info {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid #d4af37;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .kameti-rules {
+      text-align: left;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .form-group {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .form-input {
+      padding: 10px;
+      width: 250px;
+      margin-bottom: 10px;
+      border: 1px solid #d4af37;
+      border-radius: 5px;
+      background: #0a1a2f;
+      color: white;
+      text-align: center;
+    }
+    .referral-section {
+      text-align: center;
+      max-width: 270px;
+      margin: 0 auto 15px auto;
+    }
+    .referral-label {
+      color: #d4af37;
+      font-size: 14px;
+      margin-bottom: 5px;
+      display: block;
+      text-align: center;
+    }
+    .price-display {
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .receipt-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: #1a2a4f;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+    }
+    .countdown-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #d4af37;
+      border-radius: 15px 15px 0 0;
+      transition: width 0.1s linear;
+    }
+    .receipt-container {
+      background: white;
+      color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: left;
+      position: relative;
+    }
+    .receipt-header {
+      text-align: center;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    .receipt-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: 5px;
+    }
+    .receipt-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .receipt-item:last-child {
+      border-bottom: none;
+      font-weight: bold;
+      color: #d4af37;
+    }
+    .download-buttons {
+      margin-top: 20px;
+    }
+    .countdown-text {
+      color: #d4af37;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    .contact-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+    }
+    .contact-modal-content {
+      background: #1a2a4f;
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      padding: 30px;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .contact-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #d4af37;
+      font-weight: bold;
+    }
+    .contact-modal-close:hover {
+      color: #b8941f;
+    }
+    .contact-modal h3 {
+      color: #d4af37;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .contact-modal input,
+    .contact-modal textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #d4af37;
+      border-radius: 8px;
+      background: #0a1a2f;
+      color: white;
+      font-size: 14px;
+    }
+    .contact-modal input::placeholder,
+    .contact-modal textarea::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    .contact-modal button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    .contact-modal button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    }
+    .winner-popup {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #2a4f2a 0%, #1a3a1a 100%);
+      border: 2px solid #4CAF50;
+      border-radius: 15px;
+      padding: 20px;
+      z-index: 10001;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    .winner-popup .winner-title {
+      color: #4CAF50;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .winner-popup .winner-info {
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .winner-popup .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+    .winner-popup .info-row:last-child {
+      margin-bottom: 0;
+    }
+    .winner-popup .status-paid {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    .winner-popup .status-pending {
+      color: #ffa726;
+      font-weight: bold;
+    }
+    .winner-popup .countdown-bar {
+      height: 4px;
+      background: #4CAF50;
+      border-radius: 2px;
+      transition: width 0.1s linear;
+      margin-bottom: 10px;
+    }
+    .winner-popup .countdown-text {
+      color: #4CAF50;
+      font-size: 12px;
+    }
+    .btn {
+      padding: 12px 24px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    .btn-primary {
+      background: #d4af37;
+      color: #0a1a2f;
+    }
+    .btn-secondary {
+      background: #666;
+      color: white;
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .success-icon {
+      font-size: 64px;
+      color: #4CAF50;
+      margin-bottom: 20px;
+    }
+    
+    /* Header Styles (animations removed) */
+    .animated-header {
+      margin-bottom: 30px;
+    }
+    .animated-title {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .animated-subtitle {
+      /* No animations */
+    }
+    .animated-entry-fee {
+      color: #d4af37;
+      font-weight: bold;
+      font-size: 1.2em;
+      margin: 15px 0;
+    }
+    .animated-enter-text {
+      color: #d4af37;
+      font-size: 1.5em;
+      margin-bottom: 15px;
+    }
+    .animated-winner-info {
+      color: #4CAF50;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    .animated-announcement {
+      color: #ffa726;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+    
+    @media print {
+      body * { visibility: hidden; }
+      .receipt-container, .receipt-container * { visibility: visible; }
+      .receipt-container { position: absolute; left: 0; top: 0; width: 100%; }
+      .download-buttons { display: none; }
+    }
+  </style>
+  
+  <!-- Structured Data JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lucky Kameti",
+    "description": "Monthly kameti game with $1000 USD prize. Participants pay $50 entry fee for a chance to win the monthly drawing.",
+    "url": "https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev",
+    "logo": "https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev/generated-icon.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "availableLanguage": "English"
+    },
+    "makesOffer": {
+      "@type": "Offer",
+      "name": "Monthly Kameti Entry",
+      "price": "50.00",
+      "priceCurrency": "USD",
+      "description": "Entry ticket for monthly kameti drawing with $1000 prize",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2025-01-01",
+      "category": "Entertainment"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Lucky Kameti",
+    "url": "https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://37d1ed11-2838-484f-a499-47355e271bd2-00-gl8h5qt0krp7.sisko.replit.dev?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body itemscope itemtype="https://schema.org/WebPage">
+  
+  
+  <!-- Contact Modal -->
+  <div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+      <span class="contact-modal-close" onclick="closeContactModal()">&times;</span>
+      <h3>💬 Contact Us</h3>
+      <form id="inquiryForm">
+        <input type="text" id="contactName" placeholder="Your Name" required>
+        <input type="email" id="contactEmail" placeholder="Your Email" required>
+        <input type="text" id="contactSubject" placeholder="Subject" required>
+        <textarea id="contactMessage" placeholder="Your Message" rows="4" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Referral Program Modal -->
+  <div id="referralModal" class="referral-modal" style="display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8);">
+    <div class="referral-modal-content" style="background: linear-gradient(135deg, #1a2a4f 0%, #0a1a2f 100%); margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 600px; border: 2px solid #d4af37; max-height: 85vh; overflow-y: auto;">
+      <span class="referral-modal-close" onclick="closeReferralModal()" style="color: #d4af37; float: right; font-size: 32px; font-weight: bold; cursor: pointer; line-height: 20px;">&times;</span>
+      
+      <div style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%); border: 2px solid #d4af37; padding: 20px; border-radius: 10px;">
+        <h2 style="color: #d4af37; margin-bottom: 15px; text-align: center; margin-top: 0;">🎁 Join Our Referral Program</h2>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+          <p style="font-size: 18px; color: #d4af37; font-weight: bold; margin-bottom: 10px;">
+            Your referrals give you more chances to win!
+          </p>
+          <p style="font-size: 16px; margin-bottom: 15px; color: white;">
+            Share your reference number with friends and family to boost your winning chances dramatically.
+          </p>
+        </div>
+        
+        <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+          <h3 style="color: #d4af37; margin-bottom: 10px; text-align: center;">📊 How It Works</h3>
+          <ul style="text-align: left; line-height: 1.8; font-size: 15px; color: white;">
+            <li>🆔 <strong>Your reference number IS your referral code</strong> - Share it with others!</li>
+            <li>🎯 Each successful referral increases your winning probability</li>
+            <li>📈 <strong style="color: #d4af37;">10 active referrals = 90% winning chance!</strong></li>
+            <li>💫 Referred friends also get a chance to win $1,000</li>
+            <li>♻️ No limit on referrals - keep growing your network!</li>
+          </ul>
+        </div>
+        
+        <div style="text-align: center; background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: 10px; border: 1px solid #d4af37;">
+          <h4 style="color: #d4af37; margin-bottom: 10px;">🚀 Winning Probability Scale</h4>
+          <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 14px; color: white;">
+            <div><strong>0 referrals:</strong> Standard chance</div>
+            <div><strong>3 referrals:</strong> 30% boost</div>
+            <div><strong>5 referrals:</strong> 50% boost</div>
+            <div style="color: #d4af37; font-weight: bold;"><strong>10 referrals:</strong> 90% chance!</div>
+          </div>
+          <p style="margin-top: 10px; font-size: 13px; color: #999;">
+            *All referrals must be active (paid) members to count toward your winning chance
+          </p>
+        </div>
+        
+        <!-- Email Lookup Section -->
+        <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #d4af37;">
+          <h4 style="color: #d4af37; margin-bottom: 15px; text-align: center;">📧 Check Your Referrals</h4>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="email" id="friendEmail" placeholder="Enter member's email to see their referrals" style="flex: 1; min-width: 200px; padding: 10px; border: 2px solid #d4af37; border-radius: 5px; background: rgba(255,255,255,0.1); color: white; font-size: 14px;">
+            <button onclick="checkFriendRegistration()" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Get Referrals</button>
+          </div>
+          <div id="friendCheckResult" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;">
+            <!-- Result will be shown here -->
+          </div>
+        </div>
+
+        <!-- Share Your Referral Section -->
+        <div style="background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 10px; margin-top: 20px; border: 1px solid #d4af37;">
+          <h4 style="color: #d4af37; margin-bottom: 15px; text-align: center;">🔗 Share Your Referral Link</h4>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <input type="email" id="yourEmail" placeholder="Enter your email to get your referral link" style="flex: 1; min-width: 200px; padding: 10px; border: 2px solid #d4af37; border-radius: 5px; background: rgba(255,255,255,0.1); color: white; font-size: 14px;">
+            <button onclick="generateSocialSharing()" style="background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a1a2f; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Get Social Share</button>
+          </div>
+          <div id="shareResult" style="margin-top: 10px; display: none;">
+            <div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 5px; margin-top: 10px;">
+              <p style="color: #d4af37; font-weight: bold; margin-bottom: 15px; text-align: center;">📱 Share on Social Media</p>
+              <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button onclick="shareOnWhatsApp()" style="background: #25D366; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 14px;">
+                  <span style="font-size: 18px;">📱</span> WhatsApp
+                </button>
+                <button onclick="shareOnFacebook()" style="background: #1877F2; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 14px;">
+                  <span style="font-size: 18px;">📘</span> Facebook
+                </button>
+                <button onclick="shareOnLinkedIn()" style="background: #0A66C2; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 14px;">
+                  <span style="font-size: 18px;">💼</span> LinkedIn
+                </button>
+              </div>
+              <p style="color: #999; font-size: 12px; margin-top: 15px; text-align: center;">Click any button to share your referral link with friends!</p>
+              <p style="color: #4CAF50; font-size: 12px; margin-top: 5px; text-align: center; display: none;" id="shareSuccessMessage">✅ Page will refresh in 3 seconds...</p>
+            </div>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <button onclick="closeReferralModal()" style="background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); color: #0a1a2f; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer;">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Winner Popup (10 seconds) -->
+  <div id="winnerPopup" class="winner-popup">
+    <div class="winner-title" id="winnerTitle">🎉 CONGRATULATIONS!</div>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h2 style="color: #d4af37; font-size: 24px; margin: 10px 0;">
+        <span id="popupWinnerNameTitle"></span> is the Winner!
+      </h2>
+    </div>
+    <div class="winner-info">
+      <div class="info-row">
+        <span><strong>Winner Name:</strong></span>
+        <span id="popupWinnerName"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Entry #:</strong></span>
+        <span id="popupWinnerRef"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Email:</strong></span>
+        <span id="popupWinnerEmail"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Win Date:</strong></span>
+        <span id="popupWinnerDate"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Prize:</strong></span>
+        <span id="popupWinnerPrize">$1,000 USD</span>
+      </div>
+      <div class="info-row">
+        <span><strong>Status:</strong></span>
+        <span id="popupWinnerStatus"></span>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 15px; color: #4CAF50; font-size: 14px; font-weight: bold;">🎉 Winner popup displays for 10 seconds after page refresh! 🎉</div>
+  </div>
+  
+  <!-- Paid Winner Popup (10 seconds) -->
+  <div id="paidWinnerPopup" class="winner-popup" style="display: none;">
+    <div class="winner-title">💰 PAYMENT COMPLETED!</div>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <h2 style="color: #4CAF50; font-size: 24px; margin: 10px 0;">
+        <span id="paidWinnerNameTitle"></span> - Prize Paid!
+      </h2>
+    </div>
+    <div class="winner-info">
+      <div class="info-row">
+        <span><strong>Winner Name:</strong></span>
+        <span id="paidWinnerName"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Entry #:</strong></span>
+        <span id="paidWinnerRef"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Win Date:</strong></span>
+        <span id="paidWinnerDate"></span>
+      </div>
+      <div class="info-row">
+        <span><strong>Prize Amount:</strong></span>
+        <span id="paidWinnerPrize">$1,000 USD</span>
+      </div>
+      <div class="info-row">
+        <span><strong>Status:</strong></span>
+        <span style="color: #4CAF50; font-weight: bold;">✅ PAID</span>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 15px; color: #4CAF50; font-size: 14px; font-weight: bold;">💰 Payment processed successfully! 💰</div>
+  </div>
+  
+    <header class="animated-header">
+      <h1 class="animated-title" itemprop="name">🎟 Lucky Kameti - Monthly $1000 Prize</h1>
+      <p class="animated-subtitle" itemprop="description">Join thousands of participants worldwide in our secure monthly kameti system</p>
+      <p class="animated-entry-fee">Entry fee: $50.00 USD | Prize: $1,000 USD</p>
+    </header>
+    
+    <div class="price-display" style="color: black;">
+      💰 Winning Prize: $1,000 USD
+    </div>
+    
+    <!-- Enter the Kameti Section -->
+    <section class="kameti-info" itemscope itemtype="https://schema.org/EntryPoint">
+      <h2 class="animated-enter-text">🎫 Enter the Kameti</h2>
+      
+      <!-- PayPal Button Container - Positioned at top -->
+      <div id="paypal-button-container" style="display:none; margin: 20px 0;"></div>
+      
+      <form id="entryForm" style="margin-bottom: 20px;">
+        <div class="form-group">
+          <input type="text" id="name" placeholder="Full Name" required class="form-input" aria-label="Full Name for kameti entry">
+        </div>
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Email Address" required class="form-input" aria-label="Email address for kameti entry">
+        </div>
+        
+        <!-- Referral Code Section -->
+        <div class="referral-section">
+          <label for="referralCode" class="referral-label">🎁 Referral Code (Optional)</label>
+          <input type="text" id="referralCode" placeholder="Enter referral code" class="form-input" aria-label="Optional referral code">
+          <div id="referralStatus" style="font-size:12px; min-height:20px; color:#999; text-align:center;"></div>
+        </div>
+        
+        <!-- Terms and Conditions Checkbox -->
+        <div class="form-group">
+          <label style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: white; cursor: pointer;">
+            <input type="checkbox" id="termsAcceptance" required style="width: 18px; height: 18px; cursor: pointer;" aria-label="Accept terms and conditions">
+            <span>I agree to the <a href="/terms.html" target="_blank" style="color: #d4af37; text-decoration: underline;">Terms & Conditions</a></span>
+          </label>
+        </div>
+        
+        <div class="form-group">
+          <button type="submit" style="padding:12px 24px; background:#d4af37; color:#0a1a2f; border:none; border-radius:8px; font-size:16px; font-weight:600; cursor:pointer;" aria-label="Proceed to PayPal payment for kameti entry">🔒 Secure Payment via PayPal</button>
+        </div>
+      </form>
+      
+      <!-- Kameti Rules Section -->
+      <div class="kameti-rules" itemscope itemtype="https://schema.org/GameRules">
+        <h3 style="color: #d4af37; margin-bottom: 15px;">📋 Lucky Kameti Rules & Information</h3>
+        <ul style="line-height: 1.6;">
+          <li class="animated-announcement">🗓️ Kameti winner is announced every month on the 1st at midnight on this home page</li>
+          <li>🏆 Once someone wins, they will be removed after payment is processed</li>
+          <li>⏰ All kameti members must pay before the 30th of each month</li>
+          <li>❌ If payment is not made by the 30th, member name will be automatically deleted</li>
+          <li>🔄 Deleted members can re-add themselves for the next month</li>
+          <li class="animated-winner-info">💸 Winner receives $1,000 USD after verification</li>
+          <li>🎫 Each entry costs $50 USD and must be paid via PayPal</li>
+          <li>🎆 <strong>If you are a winner, you don't have to pay for the next kameti</strong></li>
+          <li style="color: #4CAF50;">💰 <strong>Your money is 100% yours - If you didn't win within 10 entries, you can withdraw your money with a 7% service charge on total payment</strong></li>
+        </ul>
+      </div>
+      
+    </section>
+
+  <!-- PayPal SDK -->
+  <script>
+    // Get PayPal client ID from server
+    fetch('/config')
+      .then(response => response.json())
+      .then(config => {
+        const script = document.createElement('script');
+        script.src = `https://www.paypal.com/sdk/js?client-id=${config.paypalClientId}&currency=USD`;
+        document.head.appendChild(script);
+        script.onload = initPayPalButtons;
+      });
+  </script>
+
+  <!-- Receipt Popup -->
+  <div id="receiptPopup" class="receipt-popup">
+    <div class="popup-content">
+      <div class="countdown-bar" id="countdownBar"></div>
+      <div class="success-icon">🎉</div>
+      <h2 style="color:#d4af37; margin-bottom:10px;">Payment Successful!</h2>
+      <div class="countdown-text" id="countdownText">Popup closes in 10 seconds</div>
+      
+      <div id="receiptContainer" class="receipt-container" style="margin: 15px 0; padding: 20px; font-size: 14px;">
+        <div class="receipt-header">
+          <div class="receipt-logo">🎟️ Lucky kameti</div>
+          <div>Entry Receipt</div>
+          <div id="receiptDate"></div>
+        </div>
+        
+        <div class="receipt-item">
+          <span><strong>Name:</strong></span>
+          <span id="receiptName"></span>
+        </div>
+        
+        <div class="receipt-item">
+          <span><strong>Email:</strong></span>
+          <span id="receiptEmail"></span>
+        </div>
+        
+        <div class="receipt-item">
+          <span><strong>Reference:</strong></span>
+          <span id="receiptRef"></span>
+        </div>
+        
+        <div class="receipt-item">
+          <span><strong>Amount:</strong></span>
+          <span>$50.00 USD</span>
+        </div>
+        
+        <div class="receipt-item">
+          <span><strong>Status:</strong></span>
+          <span style="color:#4CAF50;">✅ PAID</span>
+        </div>
+      </div>
+      
+      <button class="btn btn-primary" onclick="downloadReceipt()" style="margin-top: 10px;">📥 Download Receipt</button>
+    </div>
+  </div>
+
+  <script>
+    let userData = {};
+    let referralData = {};
+
+    // Real-time referral code validation
+    let referralTimeout;
+    document.getElementById("referralCode").addEventListener("input", function(e) {
+      clearTimeout(referralTimeout);
+      const referralCode = e.target.value.trim();
+      const statusDiv = document.getElementById("referralStatus");
+      
+      if (referralCode === '') {
+        statusDiv.innerHTML = '';
+        referralData = {};
+        return;
+      }
+      
+      statusDiv.innerHTML = '🔍 Checking referral code...';
+      statusDiv.style.color = '#999';
+      
+      referralTimeout = setTimeout(async () => {
+        try {
+          const response = await fetch('/validate-referral', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ referralCode })
+          });
+          
+          const result = await response.json();
+          
+          if (result.valid) {
+            statusDiv.innerHTML = `✅ Valid referral from ${result.referrerName}`;
+            statusDiv.style.color = '#4CAF50';
+            referralData = {
+              referralCode: referralCode,
+              referrerId: result.referrerId,
+              referrerName: result.referrerName
+            };
+          } else {
+            statusDiv.innerHTML = `❌ ${result.message}`;
+            statusDiv.style.color = '#ff6b6b';
+            referralData = {};
+          }
+        } catch (error) {
+          statusDiv.innerHTML = '❌ Error validating referral code';
+          statusDiv.style.color = '#ff6b6b';
+          referralData = {};
+        }
+      }, 500); // 500ms delay for better UX
+    });
+
+    document.getElementById("entryForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const termsAccepted = document.getElementById("termsAcceptance").checked;
+      
+      // Check email status before proceeding
+      try {
+        const response = await fetch('/check-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        
+        const result = await response.json();
+        
+        if (result.exists) {
+          if (result.status === 'active') {
+            alert('✅ ' + result.message);
+            return;
+          } else if (result.status === 'expired' || result.status === 'winner_paid') {
+            const proceed = confirm(result.message + '\\n\\nWould you like to renew your membership for $50?');
+            if (!proceed) return;
+          }
+        }
+        
+        userData.name = name;
+        userData.email = email;
+        userData.termsAccepted = termsAccepted;
+        
+        // Add referral data if valid
+        if (referralData.referralCode) {
+          userData.referralCode = referralData.referralCode;
+        }
+
+        document.getElementById("entryForm").style.display = "none";
+        document.getElementById("paypal-button-container").style.display = "block";
+        
+      } catch (error) {
+        console.error('Error checking email:', error);
+        alert('Error checking registration status. Please try again.');
+      }
+    });
+
+    function initPayPalButtons() {
+      paypal.Buttons({
+        createOrder: async function () {
+          const response = await fetch("/create-order", { method: "POST" });
+          const order = await response.json();
+          return order.id;
+        },
+        onApprove: async function (data) {
+          const response = await fetch("/capture-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ orderID: data.orderID, ...userData })
+          });
+
+          const result = await response.json();
+          if (result.success) {
+            const message = result.renewed ? 
+              'Membership renewed successfully!' : 
+              'Registration completed successfully!';
+            showSuccessPage(result.ref, data.orderID, message);
+          } else {
+            alert("❌ Payment failed: " + (result.error || 'Unknown error'));
+          }
+        },
+        onError: function(err) {
+          alert("❌ Payment error: " + err);
+        }
+      }).render("#paypal-button-container");
+    }
+
+    function showSuccessPage(refNumber, orderID, message = 'Registration completed successfully!') {
+      // Fill in receipt details
+      document.getElementById("receiptName").textContent = userData.name;
+      document.getElementById("receiptEmail").textContent = userData.email;
+      document.getElementById("receiptRef").textContent = refNumber;
+      document.getElementById("receiptDate").textContent = new Date().toLocaleString();
+      
+      // Show popup
+      document.getElementById("receiptPopup").style.display = "flex";
+      
+      // Start countdown timer
+      startCountdown();
+      
+      // Reset form after popup closes
+      setTimeout(() => {
+        closePopupAndReset();
+      }, 10000);
+    }
+    
+    function startCountdown() {
+      let timeLeft = 10;
+      const countdownText = document.getElementById("countdownText");
+      const countdownBar = document.getElementById("countdownBar");
+      
+      countdownBar.style.width = "100%";
+      
+      const timer = setInterval(() => {
+        timeLeft--;
+        countdownText.textContent = `Popup closes in ${timeLeft} seconds`;
+        countdownBar.style.width = `${(timeLeft / 10) * 100}%`;
+        
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+        }
+      }, 1000);
+    }
+    
+    function closePopupAndReset() {
+      // Hide popup
+      document.getElementById("receiptPopup").style.display = "none";
+      
+      // Reset form and show entry form again
+      document.getElementById("entryForm").reset();
+      document.getElementById("entryForm").style.display = "block";
+      document.getElementById("paypal-button-container").style.display = "none";
+      userData = {};
+    }
+
+    function downloadReceipt() {
+      const name = document.getElementById("receiptName").textContent;
+      const email = document.getElementById("receiptEmail").textContent;
+      const ref = document.getElementById("receiptRef").textContent;
+      const date = document.getElementById("receiptDate").textContent;
+      
+      const receiptHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <title>Lucky kameti Kameti Receipt</title>
+          <style>
+            body { font-family: Arial, sans-serif; padding: 30px; color: #333; max-width: 600px; margin: 0 auto; }
+            .receipt-header { text-align: center; border-bottom: 2px solid #d4af37; padding-bottom: 15px; margin-bottom: 20px; }
+            .receipt-logo { font-size: 24px; font-weight: bold; color: #d4af37; margin-bottom: 5px; }
+            .receipt-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
+            .receipt-item:last-child { border-bottom: none; font-weight: bold; color: #d4af37; }
+            .receipt-footer { margin-top: 30px; text-align: center; color: #666; font-size: 14px; }
+          </style>
+        </head>
+        <body>
+          <div class="receipt-header">
+            <div class="receipt-logo">🎟️ Lucky kameti Kameti</div>
+            <div>Official Entry Receipt</div>
+            <div>${date}</div>
+          </div>
+          
+          <div class="receipt-item">
+            <span><strong>Participant Name:</strong></span>
+            <span>${name}</span>
+          </div>
+          
+          <div class="receipt-item">
+            <span><strong>Email Address:</strong></span>
+            <span>${email}</span>
+          </div>
+          
+          <div class="receipt-item">
+            <span><strong>Entry Reference:</strong></span>
+            <span>${ref}</span>
+          </div>
+          
+          <div class="receipt-item">
+            <span><strong>Entry Fee:</strong></span>
+            <span>$50.00 USD</span>
+          </div>
+          
+          <div class="receipt-item">
+            <span><strong>Payment Status:</strong></span>
+            <span style="color:#4CAF50;">✅ PAID</span>
+          </div>
+          
+          <div class="receipt-footer">
+            <p>Thank you for participating in Lucky kameti Kameti!</p>
+            <p>Good luck! Winner announced monthly on the 1st.</p>
+          </div>
+        </body>
+        </html>
+      `;
+      
+      const blob = new Blob([receiptHTML], { type: 'text/html' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Lucky-kameti-Receipt-${ref}.html`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+
+
+    // Open admin panel function (locked)
+    function openAdminPanel() {
+      alert('🔒 Admin Access Locked\n\nAdmin panel access has been disabled for security reasons.');
+      return false;
+    }
+
+    // Hidden admin access via key combination (Desktop)
+    let adminKeySequence = [];
+    document.addEventListener('keydown', function(event) {
+      // Secret key combination: Ctrl + Shift + A + D + M + I + N
+      adminKeySequence.push(event.key.toLowerCase());
+      
+      // Keep only last 7 keys
+      if (adminKeySequence.length > 7) {
+        adminKeySequence.shift();
+      }
+      
+      // Check for admin sequence: ctrl+shift+a+d+m+i+n
+      if (event.ctrlKey && event.shiftKey && 
+          adminKeySequence.slice(-5).join('') === 'admin') {
+        event.preventDefault();
+        window.open('/admin/login.html', '_blank');
+        adminKeySequence = []; // Reset sequence
+      }
+    });
+
+    // Hidden admin access for mobile (tap sequence)
+    let mobileTapCount = 0;
+    let tapTimer = null;
+    let lastTapTime = 0;
+    
+    // Add invisible tap area at the top of the page
+    document.addEventListener('DOMContentLoaded', function() {
+      const tapArea = document.createElement('div');
+      tapArea.style.cssText = 'position: fixed; top: 0; left: 0; width: 50px; height: 50px; z-index: 9999; opacity: 0; pointer-events: auto;';
+      document.body.appendChild(tapArea);
+      
+      // Mobile admin access: 7 quick taps on top-left corner
+      tapArea.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        const currentTime = Date.now();
+        
+        // Reset if too much time passed
+        if (currentTime - lastTapTime > 1000) {
+          mobileTapCount = 0;
+        }
+        
+        mobileTapCount++;
+        lastTapTime = currentTime;
+        
+        // Clear existing timer
+        if (tapTimer) {
+          clearTimeout(tapTimer);
+        }
+        
+        // Admin access after 7 quick taps
+        if (mobileTapCount >= 7) {
+          window.open('/admin/login.html', '_blank');
+          mobileTapCount = 0;
+          return;
+        }
+        
+        // Reset counter after 2 seconds of no taps
+        tapTimer = setTimeout(() => {
+          mobileTapCount = 0;
+        }, 2000);
+      });
+    });
+    
+
+    // Show winner popup for 10 seconds after refresh with persistent timer
+    function showWinnerPopup(winner) {
+      const popupKey = `${winner.id}-${winner.paymentStatus}-${winner.paidAt || 'no-paid-date'}`;
+      const now = Date.now();
+      
+      // Check localStorage for existing timer
+      const storedData = localStorage.getItem('winnerPopupTimer');
+      if (storedData) {
+        const { key, startTime } = JSON.parse(storedData);
+        if (key === popupKey) {
+          const elapsed = now - startTime;
+          if (elapsed >= 10000) {
+            // Timer already expired
+            localStorage.removeItem('winnerPopupTimer');
+            return;
+          }
+          // Continue existing timer
+          const remainingTime = 10000 - elapsed;
+          displayWinnerPopup(winner, remainingTime);
+          return;
+        }
+      }
+      
+      // Start new 10-second timer
+      localStorage.setItem('winnerPopupTimer', JSON.stringify({
+        key: popupKey,
+        startTime: now
+      }));
+      displayWinnerPopup(winner, 10000);
+    }
+    
+    function displayWinnerPopup(winner, timeRemaining = 10000) {
+      // Hide winner name partially (show first name + last initial)
+      const nameParts = winner.name.split(' ');
+      const hiddenName = nameParts[0] + (nameParts.length > 1 ? ' ' + nameParts[nameParts.length - 1].charAt(0) + '.' : '');
+      
+      // Hide email partially (show first 3 chars + domain)
+      const emailParts = winner.email.split('@');
+      const hiddenEmail = emailParts[0].substring(0, 3) + '***@' + emailParts[1];
+      
+      // Get winner date with full date/month/year format
+      const winnerDateObj = new Date(winner.announceDate);
+      const winnerDate = winnerDateObj.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+      
+      // Fill popup data with new structure
+      document.getElementById('popupWinnerNameTitle').textContent = hiddenName;
+      document.getElementById('popupWinnerName').textContent = hiddenName;
+      document.getElementById('popupWinnerRef').textContent = winner.ref;
+      document.getElementById('popupWinnerEmail').textContent = hiddenEmail;
+      document.getElementById('popupWinnerDate').textContent = winnerDate;
+      document.getElementById('popupWinnerPrize').textContent = '$' + winner.winningAmount + ' USD';
+      
+      const statusElement = document.getElementById('popupWinnerStatus');
+      if (winner.paymentStatus === 'paid') {
+        statusElement.textContent = '✅ PAID';
+        statusElement.style.color = '#4CAF50';
+      } else {
+        statusElement.textContent = '⏳ PENDING PAYMENT';
+        statusElement.style.color = '#FFA500';
+      }
+      
+      // Show popup for specified time
+      document.getElementById('winnerPopup').style.display = 'block';
+      
+      // Auto hide after remaining time and clear localStorage
+      setTimeout(() => {
+        document.getElementById('winnerPopup').style.display = 'none';
+        localStorage.removeItem('winnerPopupTimer');
+      }, timeRemaining);
+    }
+    
+    // New function to show paid winner popup
+    function showPaidWinnerPopup(winner) {
+      // Hide winner name partially (show first name + last initial)
+      const nameParts = winner.name.split(' ');
+      const hiddenName = nameParts[0] + (nameParts.length > 1 ? ' ' + nameParts[nameParts.length - 1].charAt(0) + '.' : '');
+      
+      // Get winner date with full date/month/year format
+      const winnerDateObj = new Date(winner.announceDate);
+      const winnerDate = winnerDateObj.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+      });
+      
+      // Fill paid popup data
+      document.getElementById('paidWinnerNameTitle').textContent = hiddenName;
+      document.getElementById('paidWinnerName').textContent = hiddenName;
+      document.getElementById('paidWinnerRef').textContent = winner.ref;
+      document.getElementById('paidWinnerDate').textContent = winnerDate;
+      document.getElementById('paidWinnerPrize').textContent = '$' + winner.winningAmount + ' USD';
+      
+      // Show paid popup for 10 seconds only
+      document.getElementById('paidWinnerPopup').style.display = 'block';
+      
+      // Auto hide after 10 seconds
+      setTimeout(() => {
+        document.getElementById('paidWinnerPopup').style.display = 'none';
+      }, 10000);
+    }
+    
+    // Track shown popups to prevent duplicates
+    let shownPopups = new Set();
+    
+    // Load current winner on page refresh (10 seconds only)
+    async function loadCurrentWinner(isPolling = false) {
+      try {
+        const response = await fetch('/current-winner');
+        if (response.ok) {
+          const winner = await response.json();
+          if (winner.name) {
+            // Create unique key for this winner popup
+            const popupKey = `${winner.id}-${winner.paymentStatus}-${winner.paidAt || 'no-paid-date'}`;
+            
+            // Check if this is a recently paid winner (within last 5 minutes - matches backend)
+            const paidRecently = winner.paymentStatus === 'paid' && 
+                                winner.paidAt && 
+                                (new Date() - new Date(winner.paidAt)) < 5 * 60 * 1000;
+                                
+            if (paidRecently) {
+              // Only show popup if we haven't shown it before
+              if (!shownPopups.has(popupKey)) {
+                shownPopups.add(popupKey);
+                showPaidWinnerPopup(winner);
+              }
+            } else if (!isPolling) {
+              // Only show regular winner popup on initial page load, not during polling
+              showWinnerPopup(winner);
+            }
+          }
+        }
+      } catch (error) {
+        console.log('No current winner or error loading winner');
+      }
+    }
+    
+    // Poll for newly paid winners every 5 seconds
+    function startPolling() {
+      setInterval(() => {
+        loadCurrentWinner(true); // Pass true to indicate this is polling
+      }, 5000); // Check every 5 seconds
+    }
+    
+
+    // Contact Modal Functions
+    function openContactModal() {
+      document.getElementById('contactModal').style.display = 'flex';
+    }
+    
+    function closeContactModal() {
+      document.getElementById('contactModal').style.display = 'none';
+      document.getElementById('inquiryForm').reset();
+    }
+    
+    function openReferralModal() {
+      document.getElementById('referralModal').style.display = 'block';
+    }
+    
+    function closeReferralModal() {
+      document.getElementById('referralModal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const contactModal = document.getElementById('contactModal');
+      const referralModal = document.getElementById('referralModal');
+      
+      if (event.target === contactModal) {
+        closeContactModal();
+      }
+      if (event.target === referralModal) {
+        closeReferralModal();
+      }
+    }
+    
+    // Handle contact form submission
+    document.getElementById('inquiryForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        name: document.getElementById('contactName').value,
+        email: document.getElementById('contactEmail').value,
+        subject: document.getElementById('contactSubject').value,
+        message: document.getElementById('contactMessage').value
+      };
+      
+      try {
+        const response = await fetch('/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          alert('✅ Message sent successfully! We will respond to your inquiry soon.');
+          closeContactModal();
+        } else {
+          alert('❌ Failed to send message. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error sending message:', error);
+        alert('❌ Error sending message. Please try again.');
+      }
+    });
+    
+    // Referral functionality
+    async function checkFriendRegistration() {
+      const email = document.getElementById('friendEmail').value.trim();
+      const resultDiv = document.getElementById('friendCheckResult');
+      
+      if (!email) {
+        alert('Please enter member\'s email address to see their referrals');
+        return;
+      }
+      
+      try {
+        const response = await fetch('/referrals/check-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        
+        const result = await response.json();
+        resultDiv.style.display = 'block';
+        
+        if (result.success && result.referrals.length > 0) {
+          let referralsHtml = `
+            <div style="background: #4CAF50; color: white; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+              ✅ <strong>${result.referrer.name}</strong> (Ref: ${result.referrer.ref}) has referred <strong>${result.referrer.totalReferrals}</strong> member(s):
+            </div>
+          `;
+          
+          result.referrals.forEach((member, index) => {
+            const statusColor = member.status === 'active' ? '#4CAF50' : member.status === 'expired' ? '#ff9800' : '#f44336';
+            referralsHtml += `
+              <div style="background: rgba(212, 175, 55, 0.1); border: 1px solid #d4af37; padding: 12px; border-radius: 5px; margin-bottom: 10px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                  <div>
+                    <strong style="color: #d4af37;">${index + 1}. ${member.name}</strong><br>
+                    <small style="color: #999;">Email: ${member.email}</small><br>
+                    <small style="color: #999;">Ref: ${member.ref}</small><br>
+                    <small style="color: #999;">Joined: ${member.joinDate}</small>
+                  </div>
+                  <div style="background: ${statusColor}; color: white; padding: 4px 8px; border-radius: 3px; font-size: 12px; font-weight: bold;">
+                    ${member.status.toUpperCase()}
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+          
+          resultDiv.innerHTML = referralsHtml;
+          
+        } else if (result.success && result.referrals.length === 0) {
+          resultDiv.innerHTML = `
+            <div style="background: #ff9800; color: white; padding: 10px; border-radius: 5px;">
+              📊 <strong>${result.referrer.name}</strong> (Ref: ${result.referrer.ref}) hasn't referred anyone yet.
+            </div>
+          `;
+        } else {
+          resultDiv.innerHTML = `
+            <div style="background: #ff6b35; color: white; padding: 10px; border-radius: 5px;">
+              ❌ ${result.message || `Member not found with email: ${email}`}
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.error('Error getting referrals:', error);
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `
+          <div style="background: #ff6b35; color: white; padding: 10px; border-radius: 5px;">
+            ❌ Error getting referrals. Please try again.
+          </div>
+        `;
+      }
+    }
+    
+    let currentReferralLink = '';
+    
+    async function generateSocialSharing() {
+      const email = document.getElementById('yourEmail').value.trim();
+      const resultDiv = document.getElementById('shareResult');
+      
+      if (!email) {
+        alert('Please enter your email address');
+        return;
+      }
+      
+      try {
+        const response = await fetch('/get-referral-link', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+          currentReferralLink = result.shareLink;
+          resultDiv.style.display = 'block';
+        } else {
+          alert(result.error || 'Error generating share link. Please make sure you are registered.');
+        }
+      } catch (error) {
+        console.error('Error generating share link:', error);
+        alert('❌ Error generating share link. Please try again.');
+      }
+    }
+    
+    function shareOnWhatsApp() {
+      if (!currentReferralLink) {
+        alert('Please generate your referral link first');
+        return;
+      }
+      
+      const message = `🎟️ Join Lucky Kameti - Monthly $1000 Prize! 💰\n\nUse my referral link to enter: ${currentReferralLink}\n\n✨ Entry fee: $50 USD\n🏆 Win: $1000 USD\n🎯 Monthly draws with guaranteed winners!\n\nJoin now and good luck! 🍀`;
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+      
+      window.open(whatsappUrl, '_blank');
+      showShareSuccess();
+    }
+    
+    function shareOnFacebook() {
+      if (!currentReferralLink) {
+        alert('Please generate your referral link first');
+        return;
+      }
+      
+      const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentReferralLink)}`;
+      
+      window.open(facebookUrl, '_blank', 'width=600,height=400');
+      showShareSuccess();
+    }
+    
+    function shareOnLinkedIn() {
+      if (!currentReferralLink) {
+        alert('Please generate your referral link first');
+        return;
+      }
+      
+      const linkedinUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentReferralLink)}`;
+      
+      window.open(linkedinUrl, '_blank', 'width=600,height=400');
+      showShareSuccess();
+    }
+    
+    function showShareSuccess() {
+      const successMessage = document.getElementById('shareSuccessMessage');
+      successMessage.style.display = 'block';
+      
+      // Auto refresh page after 3 seconds
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+    
+    // Load winner on page load and start polling
+    document.addEventListener('DOMContentLoaded', function() {
+      loadCurrentWinner(); // Initial load
+      startPolling(); // Start checking every 5 seconds for newly paid winners
+    });
+  </script>
+  </div>
+
+  <!-- Footer with aligned buttons -->
+  <footer class="footer">
+    <button class="footer-button" onclick="openAdminPanel()" style="opacity: 0.6; cursor: not-allowed;">🔒 Admin (Locked)</button>
+    <button class="footer-button" onclick="openContactModal()">💬 Contact Us</button>
+    <button class="footer-button" onclick="window.location.href='connect-us.html'">💰 Withdrawal Request</button>
+    <button class="footer-button" onclick="openReferralModal()">🎁 Referral Program</button>
+  </footer>
+
+</body>
+</html>

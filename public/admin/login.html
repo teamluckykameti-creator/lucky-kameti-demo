@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky kameti Admin Login</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a1a2f 0%, #1a2f4f 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .logo h1 {
+      color: #d4af37;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    .logo p {
+      color: #ffffff;
+      opacity: 0.8;
+      font-size: 1.1rem;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    label {
+      display: block;
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #d4af37;
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+    
+    input[type="password"]::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
+      color: #0a1a2f;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    }
+    
+    .login-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    
+    .error-message {
+      background: rgba(255, 0, 0, 0.1);
+      border: 1px solid rgba(255, 0, 0, 0.3);
+      color: #ff6b6b;
+      padding: 10px;
+      border-radius: 8px;
+      margin-top: 15px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <h1>🎟️ Lucky kameti</h1>
+      <p>Admin Panel</p>
+    </div>
+    
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="adminToken">Admin Token</label>
+        <input 
+          type="password" 
+          id="adminToken" 
+          name="adminToken" 
+          placeholder="Enter your admin token"
+          required
+        >
+      </div>
+      
+      <button type="submit" class="login-btn" id="loginBtn">
+        Access Admin Panel
+      </button>
+      
+      <div class="error-message" id="errorMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const token = document.getElementById('adminToken').value;
+      const loginBtn = document.getElementById('loginBtn');
+      const errorMsg = document.getElementById('errorMessage');
+      
+      loginBtn.disabled = true;
+      loginBtn.textContent = 'Verifying...';
+      errorMsg.style.display = 'none';
+      
+      try {
+        const response = await fetch('/admin/entries', {
+          headers: {
+            'x-admin-token': token
+          }
+        });
+        
+        if (response.ok) {
+          // Store token for session
+          sessionStorage.setItem('adminToken', token);
+          window.location.href = '/admin/dashboard.html';
+        } else {
+          throw new Error('Invalid admin token');
+        }
+      } catch (error) {
+        errorMsg.textContent = 'Invalid admin token. Please try again.';
+        errorMsg.style.display = 'block';
+      }
+      
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Access Admin Panel';
+    });
+
+    // Check if already logged in
+    if (sessionStorage.getItem('adminToken')) {
+      window.location.href = '/admin/dashboard.html';
+    }
+  </script>
+</body>
+</html>
