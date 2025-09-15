@@ -28,3 +28,7 @@
   },
   "type": "module"
 }
+  "engines": {
+    "node": ">=20"
+  }
+}
